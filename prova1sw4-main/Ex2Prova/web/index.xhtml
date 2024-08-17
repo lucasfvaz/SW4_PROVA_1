@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="css/css/bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        <div class="d-flex justify-content-center flex-column  align-items-center w-100 mt-5">
+        
+        <h:form>
+            <h1>Prova de Tabuada Online</h1>
+            <div class="col-12">
+            <div class="mb-3">
+            <label for="Matricula" class="form-label"> Matricula:</label>
+            <h:inputText value="#{progressoBean.atualprova.numeroMatricula}" size="50"
+                    required="true" requiredMessage="Informe o numero Da Matricula"
+                    validatorMessage="Digite um numero"
+                    class="form-control" id="Matricula">
+           
+            
+                    <f:validateDoubleRange />
+                </h:inputText>
+            </div> 
+              <div id="Matricula" class="form-text">Aqui você insere o Numero da sua matricula</div>
+            </div>
+                <br/>
+            <div class="col-12">
+            <div class="mb-3">
+            <label for="nome" class="form-label"> Nome:</label>
+             <h:inputText
+                value="#{progressoBean.atualprova.nomedoAluno}" 
+                required="true" requiredMessage="Informe o Nome Do Aluno"
+                class="form-control"
+                validatorMessage="Digite um texto para Referenciar seu nome"
+                size="30">
+                
+                <f:validateRegex pattern="[a-zA-Z ]+" />    
+                </h:inputText>
+                <br/>
+             <div id="nome" class="form-text">Aqui você insere o nome da sua matricula</div>
+            </div> 
+            </div>
+            <h:commandButton value="Iniciar prova" 
+                             class="btn btn-primary"
+                             style="margin-top: 1rem"
+                             action="#{progressoBean.validarEincluir}"/> 
+            <h:messages infoClass="info" errorClass="error"  style="color: red;"/>
+        </h:form>
+        </div>
+    </h:body>
+</html>
+

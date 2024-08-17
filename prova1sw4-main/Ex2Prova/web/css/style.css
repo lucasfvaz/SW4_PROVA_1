@@ -1,0 +1,11 @@
+.info {
+    color:green!important;
+    font-weight: bold;
+}
+.error{
+    color:red!important;
+    font-weight: bold;
+}
+.titulo{
+    background: silver;
+}

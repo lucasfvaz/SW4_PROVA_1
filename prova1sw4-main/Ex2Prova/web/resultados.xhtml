@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+   
+    <head>
+         <title>Prova de Tabuada Online</title>
+        <link rel="stylesheet" href="css/css/bootstrap.min.css"/>
+    </head>
+    <body>
+        
+        <div class="d-flex justify-content-center flex-column  align-items-center w-100 mt-5">
+        <h1>Prova de Tabuada Online</h1>
+        <h1 class="mt-1 mb-3 text-secondary" > Sua Nota: #{progressoBean.atualprova.nota}</h1>
+        
+        <c:if test="#{not empty(progressoBean.listaProvasFeitas)}">
+            <div class="col-4">
+            <h1>Resultados</h1>
+            <h:dataTable value="#{progressoBean.listaProvasFeitas}" var="resp" border="1"
+                         cellpadding="5"  class="table table-striped">
+            
+            <h:column class="colunas">
+                <f:facet name="header"  >Matricula</f:facet>
+                <h:outputText value="#{resp.numeroMatricula}"/>
+            </h:column>
+            <h:column class="colunas">
+                <f:facet name="header" >Nome</f:facet>
+                <h:outputText value="#{resp.nomedoAluno}"/>
+            </h:column >
+            <h:column class="colunas">
+                <f:facet name="header">Nota</f:facet>
+                <h:outputText value="#{resp.nota}"/>
+            </h:column>
+             </h:dataTable>
+            
+            
+            </div>
+        </c:if>
+             <h:form style="margin-top: 2rem">
+             <h:commandButton value="Terminar" 
+                             action="#{progressoBean.returnInicio()}" class="btn btn-success"/>
+              </h:form>
+        
+        <h:messages infoClass="info" errorClass="error" style="display: none"/>
+        </div>
+        
+    </body>
+</html>

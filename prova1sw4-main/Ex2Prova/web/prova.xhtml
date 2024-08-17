@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+        <h:head>
+        <title>Prova de Tabuada Online</title>
+        <link rel="stylesheet" href="css/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+    </h:head>
+    <body>
+        <div class="d-flex justify-content-center flex-column  align-items-center w-100 mt-5">
+        
+         <h:form>
+             <h1>Prova de Tabuada Online</h1>
+             <h1>Questão #{progressoBean.atualquestoes.indice} de  20</h1>
+             <h3>#{progressoBean.atualquestoes.num1} x #{progressoBean.atualquestoes.num2} = </h3>
+             <div class="col-12">
+            <div class="mb-3">
+            <label for="resposta" class="form-label"> Reposta da questão acima:</label>
+                <h:inputText 
+                required="true" value="#{progressoBean.atualresposta.resposta}"  
+                requiredMessage="Informe A resposta"
+                validatorMessage="Digite um numero e que seja entre 0 e 100"
+                class="form-control"
+                size="2"
+                >
+                <f:convertNumber/>
+                <f:validateDoubleRange minimum="0" maximum="100" />    
+            </h:inputText>
+               <div id="resposta" class="form-text">Aqui vai a Resposta da questão</div>
+            </div>
+           </div>
+             <h:commandButton  value="Responder" action="#{progressoBean.responde()}" class="btn btn-danger" />
+        </h:form>
+        <h:messages infoClass="info" errorClass="error" />
+        </div>
+    </body>
+</html>
